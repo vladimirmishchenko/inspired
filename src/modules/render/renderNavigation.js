@@ -1,0 +1,76 @@
+import { DATA, navigation } from "../const";
+import { createElement } from "../createElement";
+
+export const renderNavigation = (gender) => {
+	const navigation = document.querySelector('.navigation');
+
+	navigation.textContent = '';
+	const container = createElement('div',
+		{
+			className: 'container',
+		},
+		{
+			parent: navigation,
+		}
+	);
+
+	const genderList = createElement('ul',
+		{
+			className: 'navigation__list gender',
+		},
+		{
+			parent: container,
+		}
+	);
+
+	for (const genderName in DATA.navigation) {
+		createElement('a',
+		{
+			className: `gender__link ${gender === genderName ? 'gender__link--active' : ''}`,
+			href: `#/${genderName}`,
+			textContent: DATA.navigation[genderName].title
+		},
+		{
+			parent: createElement('li',
+			{
+				className: 'gender__item',
+			},
+			{
+				parent: genderList,
+			})
+		})
+	}
+
+	const categoryElems = DATA.navigation[gender].list.map((item) =>
+		createElement('li',
+			{
+				className: 'category__item',
+			},
+			{
+				append: createElement('a', {
+					className: 'category__link',
+					textContent: item.title,
+					href: `#/${gender}/${item.slug}`,
+				},
+				{
+					cb(elem) {
+						elem.addEventListener('click', () => {
+							document.querySelector('.category__link--active')?.classList.remove('category__link--active');
+							elem.classList.add('category__link--active');
+						})
+					}
+				})
+			}
+		)
+	);
+
+	createElement('ul',
+		{
+			className: 'navigation__category category'
+		},
+		{
+			parent: container,
+			appends: categoryElems,
+		}
+	);
+}

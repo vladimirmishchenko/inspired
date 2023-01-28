@@ -1,0 +1,42 @@
+.footer-social {
+
+	&__title {
+		margin-bottom: 16px;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		text-transform: uppercase;
+
+		@include tablet {
+			font-size: 16px;
+			line-height: 19px;
+		}
+
+		@include mobile {
+			margin-bottom: 8px;
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+
+	&__subtitle {
+		margin-bottom: 20px;
+		font-size: 14px;
+		line-height: 17px;
+
+		@include tablet {
+			margin-bottom: 16px;
+			font-size: 12px;
+			line-height: 15px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__link--vk:hover {
+		color: $vk;
+	}
+}

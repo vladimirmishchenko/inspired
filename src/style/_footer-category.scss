@@ -1,0 +1,61 @@
+.footer-category {
+
+	&__title {
+		margin-bottom: 24px;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		text-transform: uppercase;
+
+		@include tablet {
+			margin-bottom: 16px;
+			font-size: 16px;
+			line-height: 19px;
+		}
+
+		@include mobile {
+			margin-bottom: 8px;
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		gap: 80px;
+
+		@include laptop {
+			gap: 30px;
+		}
+
+		@include tablet {
+			flex-direction: column;
+			gap: 7px;
+		}
+	}
+
+	&__subtitle {
+		margin-bottom: 10px;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 17px;
+
+		@include tablet {
+			margin-bottom: 0;
+			font-size: 12px;
+			line-height: 15px;
+		}
+	}
+
+	&__sublist {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		font-size: 14px;
+		line-height: 17px;
+
+		@include tablet {
+			display: none;
+		}
+	}
+}
