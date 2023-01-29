@@ -1,7 +1,11 @@
 import { createElement } from "../createElement";
 import logo from '../../img/logo.svg';
+import { search, searchToggle } from './renderSearch';
+import { header } from '../const';
+// import { calcTotalPrice } from '../controllers/cartController';
 
-export const searchButton = createElement('button', {
+export const searchButton = createElement('button',
+	{
 	className: 'header__link',
 	innerHTML: `
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -9,7 +13,13 @@ export const searchButton = createElement('button', {
 			<path d="M16.4431 16.4438L20.9994 21.0002" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 		</svg>
 	`
-});
+	},
+	{
+		cb(btn) {
+      btn.addEventListener('click', searchToggle);
+    },
+	}
+);
 
 export const cartLink = createElement('a', {
 	className: 'header__link',
@@ -19,7 +29,7 @@ export const cartLink = createElement('a', {
 			<path d="M8.25 6.75C8.25 5.75544 8.64509 4.80161 9.34835 4.09835C10.0516 3.39509 11.0054 3 12 3C12.9946 3 13.9484 3.39509 14.6517 4.09835C15.3549 4.80161 15.75 5.75544 15.75 6.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 		</svg>
 	`,
-	href: 'cart'
+	href: '#cart'
 })
 
 export const favouriteLink = createElement('a', {
@@ -77,7 +87,6 @@ createElement('ul',
 )
 
 export const renderHeader = () => {
-	const header = document.querySelector('.header');
-
 	header.append(container);
+	header.after(search);
 }

@@ -1,4 +1,4 @@
-// export const COUNT_PAGINATION = 3;
+export const COUNT_PAGINATION = 3;
 export const DATA = {};
 // export const API_URL = 'https://everlasting-placid-chime.glitch.me';
 export const API_URL = 'http://localhost:8024';
