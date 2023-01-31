@@ -1,0 +1,60 @@
+.pagination {
+	display: flex;
+  gap: 16px;
+  margin: 0 auto;
+	padding-top: 40px;
+  width: max-content;
+
+  &__list {
+    display: flex;
+    gap: 8px;
+    padding-top: 3px;
+    padding-bottom: 6px;
+
+    @include tablet {
+      gap: 10px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    width: 16px;
+    font-size: 14px;
+    line-height: 17px;
+    color: $gray;
+
+    @include tablet {
+      width: 10px;
+      font-size: 10px;
+      line-height: 12px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 1px;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      background-color: transparent;
+    }
+
+    &--active {
+      color: $black-color;
+
+      &:after {
+        background-color: $black-color;
+      }
+    }
+  }
+
+  &__arrow {
+    color: $black-color;
+
+    &--disabled {
+      color: $gray;
+      pointer-events: none;
+    }
+  }
+}
