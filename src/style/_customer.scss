@@ -1,0 +1,26 @@
+.customer {
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+		margin-bottom: 12px;
+    padding-bottom: 4px;
+    border-bottom: 0.5px solid #dcdcdc;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-title {
+    font-size: 14px;
+    line-height: 17px;
+    color: $gray;
+  }
+
+  &__item-data {
+		margin-left: auto;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

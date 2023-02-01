@@ -1,47 +1,60 @@
 import './index.html';
 import './index.scss';
 
-import { router } from './modules/router';
-import { mainPage } from './modules/mainPage';
-import { renderHeader } from './modules/render/renderHeader';
+import { router } from './modules/utils/router';
+import { mainPageController } from './modules/controllers/mainPageController';
 import { renderFooter } from './modules/render/renderFooter';
+import { renderHeader } from './modules/render/renderHeader';
 import { getData } from './modules/getData';
-import { API_URL, DATA } from './modules/const';
+import { API_URL, DATA, main } from './modules/const';
 import { createCssColors } from './modules/createCssColors';
-import { categoryPage } from './modules/categoryPage';
-// import { searchPageController } from './modules/controllers/searchController';
+import { createElement } from './modules/utils/createElement';
+import { categoryPageController } from './modules/controllers/categoryPageController';
+import { searchPageController } from './modules/controllers/searchController';
+import { favoriteController } from './modules/controllers/favoriteController';
+import { cardController } from './modules/controllers/cardController';
+import {
+  cartController,
+  cartGoodsStore,
+  getCart,
+} from './modules/controllers/cartController';
 
 const init = async () => {
-	try {
-		DATA.navigation = await getData(`${API_URL}/api/categories`);
-		DATA.colors = await getData(`${API_URL}/api/colors`);
+  try {
+    DATA.navigation = await getData(`${API_URL}/api/categories`);
+    DATA.colors = await getData(`${API_URL}/api/colors`);
 
-		router.on('*', () => {
-			renderHeader();
-			renderFooter();
-		});
+    router.on('*', () => {
+      renderHeader();
+      renderFooter();
+    });
+    createCssColors(DATA.colors);
 
-		createCssColors(DATA.colors);
+    router.on('/', () => {
+      mainPageController();
+    });
 
-		router.on('/', () => {
-			mainPage();
-		});
+    router.on('women', () => {
+      mainPageController('women');
+    });
 
-		router.on('women', () => {
-			mainPage('women');
-		});
+    router.on('men', () => {
+      mainPageController('men');
+    });
 
-		router.on('men', () => {
-			mainPage('men');
-		});
+    router.on('/:gender/:category', categoryPageController);
 
-		router.on('/:gender/:category', categoryPage);
+    router.on('/product/:id', cardController);
 
-		router.on('search', (data) => console.log(data.params.value));
+    router.on('cart', cartController);
 
-	} catch(e) {
-		console.warn(e);
-    createElement('h2',
+    router.on('search', searchPageController);
+
+    router.on('favorite', favoriteController);
+  } catch (e) {
+    console.warn(e);
+    createElement(
+      'h2',
       {
         textContent: 'Что-то пошло не так, попробуйте позже...',
       },
@@ -52,9 +65,9 @@ const init = async () => {
         },
       },
     );
-	} finally {
-		router.resolve();
-	}
-}
+  } finally {
+    router.resolve();
+  }
+};
 
 init();

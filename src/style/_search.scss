@@ -26,20 +26,20 @@
 
   &__input {
     flex-grow: 1;
-    height: 100%;
 		padding: 0 24px;
+    height: 100%;
+    border: 1px solid $gray;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    border: 1px solid $gray;
 
-    &_error {
+    &--error {
       border-color: #ff0000;
     }
 
-    @supports not selector(:focus-visible) {
+    @supports not selector(:focus-visble) {
       &:focus {
-        border: 1px solid $black-color;
+        border: 1px solid $main-color;
       }
     }
 
@@ -49,7 +49,7 @@
 
     &:focus-visible {
       outline: none;
-      border: 1px solid $black-color;
+      border: 1px solid $main-color;
     }
 
     &::placeholder {
@@ -70,8 +70,8 @@
   &__btn {
     flex-basis: 141px;
     height: 100%;
-    background-color: $black-color;
-    color: $white-color;
+    background-color: $main-color;
+    color: $second-color;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
@@ -105,7 +105,7 @@
     font-size: 12px;
     color: #ff0000;
 
-    &_show {
+    &--show {
       display: block;
     }
   }

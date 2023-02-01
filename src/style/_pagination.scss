@@ -1,9 +1,9 @@
 .pagination {
-	display: flex;
+  display: flex;
   gap: 16px;
-  margin: 0 auto;
-	padding-top: 40px;
+	margin: 0 auto;
   width: max-content;
+  padding-top: 40px;
 
   &__list {
     display: flex;
@@ -29,28 +29,28 @@
       line-height: 12px;
     }
 
-    &:after {
+    &::after {
       content: '';
       position: absolute;
-      display: block;
-      height: 1px;
       left: 0;
       right: 0;
       bottom: -6px;
+			display: block;
+      height: 1px;
       background-color: transparent;
     }
 
     &--active {
-      color: $black-color;
+      color: $main-color;
 
-      &:after {
-        background-color: $black-color;
+      &::after {
+        background-color: $main-color;
       }
     }
   }
 
   &__arrow {
-    color: $black-color;
+    color: $main-color;
 
     &--disabled {
       color: $gray;

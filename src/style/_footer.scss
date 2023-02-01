@@ -1,70 +1,84 @@
 .footer {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+      'category social contacts'
+      'copyright . development';
+    gap: 26px 20px;
+		padding-top: 51px;
+    padding-bottom: 24px;
+    border-top: 1px solid $light-gray;
 
-		&__container {
-			padding-top: 51px;
-			padding-bottom: 54px;
-			display: grid;
-			grid-template-columns: 1fr 2fr 1fr;
-			grid-template-areas:
-				'category social contacts'
-				'copyright . development';
-			gap: 26px 20px;
-			border-top: 1px solid $light-gray;
+    @include laptop {
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-top: 31px;
+    }
 
-			@include laptop {
-				grid-template-columns: 1fr 1fr 1fr;
-				padding-top: 31px;
-			}
+    @include tablet {
+      grid-template-columns: 1fr 2fr 1fr;
+			gap-row: 17px;
+      padding-top: 25px;
+      padding-bottom: 16px;
+    }
 
-			@include tablet {
-				grid-template-columns: 1fr 2fr 1fr;
-				gap-row: 17px;
-				padding-top: 25px;
-				padding-bottom: 16px;
-			}
+    @include mobile {
+      grid-template-columns: 1fr max-content;
+      grid-template-areas:
+        'category social'
+        'contacts contacts'
+        'development development'
+        'copyright copyright';
+      gap: 24px;
+			padding-top: 17px;
+    }
+  }
 
-			@include mobile {
-				grid-template-columns: 1fr max-content;
-				grid-template-areas:
-					'category social'
-					'contacts contacts'
-					'development development'
-					'copyright copyright';
-					gap: 24px;
-					padding-top: 17px;
-			}
-		}
+  &__item {
+    &--category {
+      grid-area: category;
+    }
 
-		&__item {
+    &--social {
+      grid-area: social;
+      justify-self: center;
+    }
 
-			&--category {
-				grid-area: category;
-			}
+    &--contacts {
+      grid-area: contacts;
+    }
 
-			&--social {
-				grid-area: social;
-				justify-self: center;
-			}
+    &--copyright {
+      grid-area: copyright;
+      align-self: end;
+    }
 
-			&--contacts {
-				grid-area: contacts;
-			}
+    &--development {
+      grid-area: development;
+    }
+  }
+  &__title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
 
-			&--copyright {
-				grid-area: copyright;
-				align-self: end;
-			}
+    @include tablet {
+      font-size: 16px;
+      line-height: 19px;
+    }
 
-			&--development {
-				grid-area: development;
-			}
-		}
+    @include mobile {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
 
-		&__link {
-			transition: color .3s ease-in-out;
+  &__link {
+    transition: color .3s ease-in-out;
 
-			&:hover {
-				color: $gray;
-			}
-		}
+    &:hover {
+      color: $gray;
+    }
+  }
 }

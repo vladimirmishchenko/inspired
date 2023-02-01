@@ -1,5 +1,5 @@
 import { searchController } from '../controllers/searchController';
-import { createElement } from '../createElement';
+import { createElement } from '../utils/createElement';
 
 export const search = createElement('div', {
   className: 'search',
@@ -65,13 +65,13 @@ const searchError = createElement(
 );
 
 export const showSearchError = () => {
-  searchError.classList.add('search__error_show');
-  inputSearch.classList.add('search__input_error');
+  searchError.classList.add('search__error--show');
+  inputSearch.classList.add('search__input--error');
 
   clearTimeout(searchError._showTimer);
 
   searchError._showTimer = setTimeout(() => {
-    searchError.classList.remove('search__error_show');
-    inputSearch.classList.remove('search__input_error');
+    searchError.classList.remove('search__error--show');
+    inputSearch.classList.remove('search__input--error');
   }, 3000);
 };

@@ -1,7 +1,6 @@
 export const COUNT_PAGINATION = 3;
 export const DATA = {};
-// export const API_URL = 'https://everlasting-placid-chime.glitch.me';
-export const API_URL = 'http://localhost:8024';
+export const API_URL = 'https://storm-beaded-arch.glitch.me';
 export const TITLE = {
   women: {
     title: 'Новая коллекция Бюстгальтер-балконет ',
@@ -19,6 +18,6 @@ export const main = document.querySelector('main');
 export const hero = document.querySelector('.hero');
 export const products = document.querySelector('.goods');
 export const footer = document.querySelector('.footer');
-// export const card = document.querySelector('.card');
-// export const order = document.querySelector('.order');
-// export const cart = document.querySelector('.cart');
+export const card = document.querySelector('.card');
+export const order = document.querySelector('.order');
+export const cart = document.querySelector('.cart');

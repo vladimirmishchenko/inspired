@@ -9,6 +9,7 @@ export const getData = async (urlApi, param, cbError = () => {}) => {
     }
 
     const response = await fetch(url);
+
     const data = await response.json();
 
     if (!response.ok) {
@@ -19,7 +20,7 @@ export const getData = async (urlApi, param, cbError = () => {}) => {
   } catch(err) {
     console.warn(err);
 
-		if (typeof param === 'function') {
+    if (typeof param === 'function') {
       param(err)
     } else {
       cbError(err);

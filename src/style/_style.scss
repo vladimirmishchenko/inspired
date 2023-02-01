@@ -11,27 +11,27 @@ html {
 
 body {
   min-width: 320px;
-  min-height: 100vh;
   font-family: Inter, sans-serif;
-	font-weight: 400;
-	color: $black-color;
+  background-color: $second-color;
+  color: $main-color;
+  font-weight: 400;
 }
 
-img, svg {
-	display: block;
+img,
+svg {
+  display: block;
   max-width: 100%;
   max-height: 100%;
   height: auto;
-	object-fit: cover;
 }
 
 button {
-	display: block;
+  display: block;
   padding: 0;
-	background-color: transparent;
-	border: none;
-	color: inherit;
-  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+	cursor: pointer;
 }
 
 a {
@@ -39,9 +39,9 @@ a {
   color: inherit;
 }
 
-ul, ol {
-  margin: 0;
+ul {
   padding: 0;
+  margin: 0;
 	list-style: none;
 }
 
@@ -49,9 +49,14 @@ h1,
 h2,
 h3,
 p,
-figure,
-fieldset {
+figure{
   margin: 0;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 .visually-hidden {
@@ -59,34 +64,38 @@ fieldset {
   transform: scale(0);
 }
 
-.container {
-	--max-width: 1180px;
-	--padding: 30px;
-	margin: 0 auto;
-	padding: 0 var(--padding);
-  max-width: calc(var(--max-width) + (var(--padding) * 2));
-
-	@include laptop {
-		--max-width: 880px;
-	}
-
-	@include tablet {
-		--max-width: 620px;
-	}
-
-	@include mobile {
-		--padding: 15px;
-	}
+.input-hide {
+  appearance: none;
 }
 
-.main {
-	margin-bottom: 120px;
+.container {
+  --max-width: 1180px;
+  --padding: 30px;
+  max-width: calc(var(--max-width) + var(--padding) * 2);
+  padding: 0 var(--padding);
+  margin: 0 auto;
 
-	@include tablet {
-		margin-bottom: 80px;
-	}
+  @include laptop {
+    --max-width: 880px;
+  }
 
-	@include mobile {
-		margin-bottom: 60px;
-	}
+  @include tablet {
+    --max-width: 620px;
+  }
+
+  @include mobile {
+    --padding: 15px;
+  }
+}
+
+main {
+  margin-bottom: 120px;
+
+  @include tablet {
+    margin-bottom: 80px;
+  }
+
+  @include mobile {
+    margin-bottom: 60px;
+  }
 }

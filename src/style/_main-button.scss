@@ -1,0 +1,17 @@
+.main-button {
+	padding: 14px 41px 15px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	background-color: $main-color;
+	color: $second-color;
+	text-transform: uppercase;
+	white-space: nowrap;
+	border: none;
+
+	@include tablet {
+		padding: 12px 41px;
+		font-size: 10px;
+		line-height: 12px;
+	}
+}

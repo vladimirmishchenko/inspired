@@ -1,5 +1,5 @@
-import { createElement } from '../createElement';
-import { getUrl } from '../getUrl';
+import { createElement } from '../utils/createElement';
+import { getUrl } from '../utils/getUrl';
 
 export const renderPagination = (wrapperPagination, page, pages, count) => {
   wrapperPagination.textContent = '';
@@ -32,7 +32,8 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
       }
     }
 
-    createElement('li',
+    createElement(
+      'li',
       {
         className: 'pagination__item',
       },
@@ -40,16 +41,16 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
         parent: paginationList,
         append: createElement('a', {
         textContent: n,
-        href: getUrl({page: n}),
-        className: `pagination__link
-          ${page === n ? 'pagination__link--active' : ''}`
+        href:  getUrl({page: n}),
+        className: `pagination__link ${page === n ? 'pagination__link--active' : ''}`
         })
       }
     )
   }
 
   if (pages > count) {
-    createElement('a',
+    createElement(
+      'a',
       {
         className: `pagination__arrow pagination__arrow--start
           ${!isNotStart ? 'pagination__arrow--disabled' : ''}`,
@@ -69,7 +70,8 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
       },
     ),
 
-    createElement('a',
+    createElement(
+      'a',
       {
         className: `pagination__arrow pagination__arrow--end
           ${isEnd ? 'pagination__arrow--disabled' : ''}`,
@@ -82,9 +84,7 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
         `,
         ariaLabel: 'В конец'
       },
-      {
-				parent: wrapperPagination
-			},
+      {parent: wrapperPagination},
     )
   }
-};
+}
